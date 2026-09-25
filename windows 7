@@ -52,3 +52,5 @@ class Keylogger:
 if __name__ == "__main__":
     kl = Keylogger()
     kl.run()
+
+# fellow skids use with caution thanks
