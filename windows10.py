@@ -1,5 +1,4 @@
 # original code i wrote but needed one for win 7 which is a 10000000000000 times simpler to think of AND create
-# also has APPROX 120 less lines trust
 # fellow skids use with caution thanks i am not responsible for your dogshit social engineering or below average ninja skills
 
 import keyboard
